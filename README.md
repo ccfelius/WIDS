@@ -45,6 +45,9 @@ unzip wids2022.zip
 
 Now you should have the data locally on your computer, good luck!
 
+### Installing Conda and other packages
+
+Furthermore, try to install [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html). This is necessary for tensorflow (ML package) and jupyter notebooks. Some other packages that we'll probably use are [sklearn](https://www.bing.com/search?q=sklearn+&qs=n&form=QBRE&msbsrank=6_6__0&sp=-1&pq=sklearn+&sc=6-8&sk=&cvid=60BD5DAD0C6D44BFA710F1CCEF83827D) and [XGboost](https://xgboost.readthedocs.io/en/stable/install.html)
 
 #### Some tips & tricks
 
