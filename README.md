@@ -1,5 +1,5 @@
-# WIDS
-Wids Datathon
+# Women in Data Science
+Wids Datathon github for team ???
 
 ### Install & fetch data from Kaggle for WIDS 2022
 
