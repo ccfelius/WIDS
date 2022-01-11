@@ -3,7 +3,7 @@ Wids Datathon github for team ???
 
 ### Install & fetch data from Kaggle for WIDS 2022
 
-Create a kaggle account, in your terminal, type:
+First thing to do: create an account on [Kaggle](http://www.kaggle.com). Once you've created an account open your terminal (in MacOS/Linux) and install the kaggle package by using pip:
 
 ```
 pip install kaggle
