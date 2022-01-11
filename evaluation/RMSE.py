@@ -15,14 +15,11 @@ def evaluate(path_train, path_predicted):
 
     """
 
-    # Read and parse the site_eui col of training dataset
+    # Read training dataset
     data = pd.read_csv(path_train)
 
     # Extract site_eui and cast to list
     training_data = list(data["site_eui"])
-
-    # Store length of training_data
-    length = len(training_data)
 
     # Read submission file, extract site_eui
     predicted = pd.read_csv(path_predicted)[["id", "site_eui"]]
