@@ -44,3 +44,18 @@ unzip wids2022.zip
 ```
 
 Now you should have the data locally on your computer, good luck!
+
+
+#### Some tips & tricks
+
+You can create a new folder in your terminal by the make directory (mkdir) command. So e.g.:
+
+```
+mkdir wids
+```
+
+This will create a directory called 'wids'. Moreover, if you want to know what the path is of the current folder you're in you can use the print working directory (pwd) command. You use it by just typing:
+
+```
+pwd
+```
