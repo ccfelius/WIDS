@@ -1,10 +1,5 @@
-# Submission file has format below:
-# id,site_eui
-# 75757,1.3
-# 75758,2.8
 import pandas as pd
 import math
-from pandas.core.indexes.base import InvalidIndexError
 
 # example paths
 path_train = "/Users/charlottefelius/documents/wids2022/WIDS/train.csv"
@@ -19,7 +14,7 @@ def evaluate(path_train, path_predicted):
     output: RMSE
 
     """
-    
+
     # Read and parse the site_eui col of training dataset
     data = pd.read_csv(path_train)
 
@@ -29,7 +24,7 @@ def evaluate(path_train, path_predicted):
     # Store length of training_data
     length = len(training_data)
 
-    # Read submission file, extract site_eui and cast to list
+    # Read submission file, extract site_eui
     predicted = pd.read_csv(path_predicted)[["id", "site_eui"]]
 
     # Infer first and last ID of predicted data
@@ -45,10 +40,12 @@ def evaluate(path_train, path_predicted):
     # calculate RMSE
     aggregate = 0;
 
-    # Iterate parallel through both lists
+    # Iterate parallel through both lists 
     for i, j in zip(training, predicted):
-        aggregate += (i-j)**2
 
+        # calculate square of difference between each entry and sum
+        aggregate += (i-j)**2
+     
     RSME = math.sqrt((1/length)*aggregate)
 
     print(f"RSME Score is: {RSME}")
