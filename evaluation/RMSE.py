@@ -1,7 +1,6 @@
 import pandas as pd
 import math
-import unittest
-
+import sys
 from pandas.core.indexes.base import InvalidIndexError
 
 # example paths
@@ -60,10 +59,9 @@ def evaluate(path_train, path_predicted, index_first = 0, index_last = 0):
      
     RMSE = math.sqrt((1/length)*aggregate)
 
-    print(f"RSME Score is: {RMSE}")
+    print(f"RMSE Score is: {RMSE}")
 
     return RMSE
 
 # Testcases
-# evaluate(path_train, path_predicted, 0, 10)
 # evaluate(path_train, path_predicted, 0, 99999999999)
