@@ -7,7 +7,7 @@ from pandas.core.indexes.base import InvalidIndexError
 path_train = "/Users/charlottefelius/documents/wids2022/WIDS/train.csv"
 path_predicted = "/Users/charlottefelius/documents/wids2022/WIDS/sample_solution.csv" 
 
-def evaluate(path_train, path_predicted, index_first = 0, index_last = 0):
+def evaluate(path_train, path_predicted, index_first = 0, index_last = 0, random=True):
 
     """
     Function for evaluating ML model by RMSE
@@ -23,9 +23,6 @@ def evaluate(path_train, path_predicted, index_first = 0, index_last = 0):
     # Extract site_eui and cast to list
     training_data = list(data["site_eui"])
 
-    # Store length of training dataset
-    length = len(training_data)
-
     # Throw error if invalid indices
     if index_first < 0 or index_last < 0:
         raise InvalidIndexError("Negative index")
@@ -37,26 +34,37 @@ def evaluate(path_train, path_predicted, index_first = 0, index_last = 0):
     # Read submission file, extract id and site_eui 
     predicted = pd.read_csv(path_predicted)[["id", "site_eui"]]
 
-    # Infer first and last ID of predicted data
-    if index_first == 0 and index_last == 0:
-        index_first = int(predicted.head(1).id)
-        index_last = int(predicted.tail(1).id) + 1
+    # Store length of training dataset
+    length = len(predicted)
 
-    # Cast predicted to list
-    predicted = list(predicted["site_eui"])
-
-    # Take subset of training_set 
-    training = training_data[index_first:index_last]
-
-    # calculate RMSE
+    # define aggregate
     aggregate = 0;
 
-    # Iterate parallel through both lists 
-    for i, j in zip(training, predicted):
+    if random==False:
 
-        # calculate square of difference between each entry and sum
-        aggregate += (i-j)**2
-     
+        # Infer first and last ID of predicted data
+        if index_first == 0 and index_last == 0:
+            index_first = int(predicted.head(1).id)
+            index_last = int(predicted.tail(1).id)
+
+        # Cast predicted to list
+        predicted = list(predicted["site_eui"])
+
+        # Take subset of training_set 
+        training = training_data[index_first:index_last]
+
+        # Iterate parallel through both lists 
+        for i, j in zip(training, predicted):
+
+            # calculate square of difference between each entry and sum
+            aggregate += (i-j)**2
+        
+    else:
+
+        for id_, value in predicted.iterrows():
+
+            aggregate += (training_data[id_]-value)**2
+
     RMSE = math.sqrt((1/length)*aggregate)
 
     print(f"RMSE Score is: {RMSE}")
