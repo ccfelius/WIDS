@@ -1,6 +1,8 @@
 # ignore all csv files
 *.csv
 
-# ignore all checkpoints
-**.__pycache__
+# ignore folders
+evaluation/__pycache__/
+
+# ignore checkpoints in every folder
 **.ipynb_checkpoints
