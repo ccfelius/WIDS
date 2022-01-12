@@ -1,5 +1,5 @@
 # ignore all csv files
-*.csv
+**.csv
 
 # ignore folders
 evaluation/__pycache__/
