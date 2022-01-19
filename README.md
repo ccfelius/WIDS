@@ -1,5 +1,5 @@
 # Women in Data Science
-Wids Datathon github for team ???
+Wids Datathon github for team Queen B (Refers to Blair Waldorf from GG)
 
 ### Install & fetch data from Kaggle for WIDS 2022
 
