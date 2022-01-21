@@ -3,6 +3,7 @@
 
 # ignore folders
 evaluation/__pycache__/
+results/
 
 # ignore checkpoints in every folder
 **.ipynb_checkpoints
